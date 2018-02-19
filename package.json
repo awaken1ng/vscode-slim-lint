@@ -1,0 +1,36 @@
+{
+  "name": "vscode-slim-linter",
+  "displayName": "Slim Linter",
+  "description": "Integrates slim-lint to lint slim templates",
+  "version": "0.0.1",
+  "publisher": "",
+  "author": "Awakening",
+  "engines": { "vscode": "^1.18.0" },
+  "categories": ["Linters"],
+  "activationEvents": ["onLanguage:slim"],
+  "main": "./extension/extension",
+  "contributes": {
+    "languages": [{ "id": "slim", "extensions": [".slim"] }],
+    "commands": [],
+    "configuration": {
+        "type": "object",
+        "title": "Slim Linter configuration",
+        "properties": {
+            "slim-lint.path": {"type": "string", "default": "slim-lint", "description": "Path to slim-lint"}
+        }
+      }
+    },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.18.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "vscode": "^1.1.6"
+  }
+}
